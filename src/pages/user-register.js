@@ -26,7 +26,7 @@ export default function Register() {
                     <div className="mb-4">
                         <input
                             type="text"
-                            placeholder="Username"
+                            placeholder="User Name"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             className="border p-3 w-full bg-gray-800 text-white rounded"
