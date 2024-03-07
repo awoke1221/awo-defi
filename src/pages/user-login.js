@@ -21,7 +21,7 @@ export default function LogIn() {
     return (
         <div className=" text-white h-screen flex items-center justify-center">
             <div className="p-8 bg-gray-900 rounded shadow-md w-96">
-                <h2 className="text-2xl font-bold mb-4">Login</h2>
+                <h2 className="text-2xl text-center font-bold mb-4">Login</h2>
                 <form onSubmit={handleRegister}>
                     <div className="mb-4">
                         <input
@@ -42,12 +42,14 @@ export default function LogIn() {
                             className="border p-3 w-full bg-gray-800 text-white rounded"
                         />
                     </div>
+                    <div className="flex justify-center">
                     <button
                         type="submit"
-                        className="bg-blue-500 text-white px-4 py-2 rounded"
+                        className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-4 px-8 rounded-full justify-center shadow-lg"
                     >
                         Login
                     </button>
+                    </div>
                 </form>
             </div>
         </div>
