@@ -4,7 +4,7 @@ import SudokuImg from '../../../assets/sudoku.png';
 
 
 
-const navlinks = ['Home', 'Register', 'Login', 'Claim', 'Portfolio', 'Fundraising'];
+const navlinks = ['Home', 'Register', 'Login', 'wallet', 'Portfolio', 'Fundraising'];
 
 export default function Footer() {
   return (

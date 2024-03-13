@@ -1,12 +1,12 @@
 import React from "react";
-import connectToMetaMask from '../../../utils/Ethereume'
+
 
 export default function ConnectWallet() {
 
   return (
     <div>
       <button className="flex justify-center self-center gap-3 md:gap-4 text-[16px] md:text-[20px] w-[173px] h-[51px] md:w-[232px] md:h-[64px] btn-wallet"
-        onClick={connectToMetaMask}>
+        >
         <p className="self-center text-white">Connect Wallet</p>
 
         <svg

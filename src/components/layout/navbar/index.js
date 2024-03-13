@@ -8,7 +8,7 @@ import Divider from './Divider.js';
 
 import LogoImg from '../../../assets/Logo.png';
 
-const navlinks = ['Home', 'Register', 'Login', 'Stake', 'Claim', 'Fundraising'];
+const navlinks = ['Home', 'Register', 'Login', 'wallet', 'Claim', 'Fundraising'];
 
 function LinkItem({ label }) {
   return (

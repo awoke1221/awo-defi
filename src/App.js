@@ -11,6 +11,7 @@ import Navbar from './components/layout/navbar';
 import Footer from './components/layout/footer';
 import Register from './pages/user-register';
 import LogIn from './pages/user-login';
+import Walletconect from './pages/wallet-conect'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Routes>
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LogIn />} />
+            <Route path="/wallet" element={<Walletconect />} />
           </Routes>
         </main>
         <Footer />
