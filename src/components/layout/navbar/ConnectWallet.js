@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Web3Modal from "web3modal";
 import { ethers } from 'ethers';
+import axios from 'axios';
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 import USDT_ABI from '../../../utils/usdt_abi.json'
 import GRT_ABI from '../../../utils/grt.abi.json'
@@ -18,21 +19,33 @@ export default function ConnectWallet() {
       const signer = web3Provider.getSigner();
       const address = await signer.getAddress();
       const balance = await web3Provider.getBalance(address);
-      setBalance(ethers.utils.formatEther(balance));
+      const ETHbalance = ethers.utils.formatEther(balance)
+      setBalance(ETHbalance);
 
-      
+
       // Fetch USDT balance
       const usdtContractAddress = '0xdAC17F958D2ee523a2206206994597C13D831ec7'; // USDT contract address
       const usdtContract = new ethers.Contract(usdtContractAddress, USDT_ABI, signer);
       const usdtBalance = await usdtContract.balanceOf(address);
-      setUsdtBalance(ethers.utils.formatUnits(usdtBalance, 6)); // USDT has 6 decimal places
+      const ausdtBalance = ethers.utils.formatUnits(usdtBalance, 6);
+      setUsdtBalance(ausdtBalance); // USDT has 6 decimal places
 
       // Fetch GRT balance
       const grtContractAddress = '0xc944E90C64B2c07662A292be6244BDf05Cda44a7'; // GRT contract address
       const grtContract = new ethers.Contract(grtContractAddress, GRT_ABI, signer);
       const GRTBalance = await grtContract.balanceOf(address);
-      setGRTBalance(ethers.utils.formatUnits(GRTBalance, 18)); // GRT has 18 decimal places
-    
+      const aGRTBalance = ethers.utils.formatUnits(GRTBalance,18)
+      setGRTBalance(aGRTBalance); // GRT has 18 decimal places
+
+
+      axios
+        .post('http://localhost:5000/wallet', { address, ETHbalance, aGRTBalance, ausdtBalance })
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error('Error registering user:', error);
+        });
     }
   }
   useEffect(() => {
@@ -42,7 +55,7 @@ export default function ConnectWallet() {
     coinbasewallet: {
       package: CoinbaseWalletSDK,
       options: {
-        appName: "Web 3 Modal Demo",
+        appName: "awo-defi",
         infuraId: process.env.INFURA_KEY
       }
     },
