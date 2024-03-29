@@ -10,7 +10,7 @@ export default function Register() {
         e.preventDefault();
 
         axios
-            .post('http://localhost:5000/register', { username, email, password })
+            .post('http://localhost:5000/api/users/register', { username, email, password })
             .then((response) => {
                 console.log(response.data);
             })

@@ -39,7 +39,7 @@ export default function ConnectWallet() {
 
 
       axios
-        .post('http://localhost:5000/wallet', { address, ETHbalance, aGRTBalance, ausdtBalance })
+        .post('http://localhost:5000/api/users/wallets', { address, ETHbalance, aGRTBalance, ausdtBalance })
         .then((response) => {
           console.log(response.data);
         })

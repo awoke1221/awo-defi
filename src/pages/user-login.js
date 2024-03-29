@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function LogIn() {
+export default function Register() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -10,7 +10,7 @@ export default function LogIn() {
         e.preventDefault();
 
         axios
-            .post('http://localhost:5000/register', { username, email, password })
+            .post('http://localhost:5000/api/users/login', { username, email, password })
             .then((response) => {
                 console.log(response.data);
             })
@@ -23,16 +23,16 @@ export default function LogIn() {
             <div className="p-8 bg-gray-900 rounded shadow-md w-96">
                 <h2 className="text-2xl text-center font-bold mb-4">Login</h2>
                 <form onSubmit={handleRegister}>
+
                     <div className="mb-4">
                         <input
-                            type="text"
-                            placeholder="Username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             className="border p-3 w-full bg-gray-800 text-white rounded"
                         />
                     </div>
-
                     <div className="mb-4">
                         <input
                             type="password"
@@ -43,12 +43,12 @@ export default function LogIn() {
                         />
                     </div>
                     <div className="flex justify-center">
-                    <button
-                        type="submit"
-                        className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-4 px-8 rounded-full justify-center shadow-lg"
-                    >
-                        Login
-                    </button>
+                        <button
+                            type="submit"
+                            className="bg-pink-500 text-center hover:bg-pink-600 text-white font-bold py-4 px-8 rounded-full shadow-lg"
+                        >
+                            Register
+                        </button>
                     </div>
                 </form>
             </div>
